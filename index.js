@@ -55,33 +55,46 @@ function displayHandler()
   startScreen.classList.add("displayNone");
   swapScreen.classList.remove("displayNone");
   swapScreen.classList.add("displayBlock");
+  
+  
+  swapArray = fruitArray.map(doswap);
+  
 
-    let firstStr;
-    let midStr;
-    let lastStr;
-    let combinedStr;
-
-
-  for (let x=0; x<fruitArray.length;x++)
-  {
-    firstStr=fruitArray[x].substr(0,1);
-    lastStr=fruitArray[x].substr(fruitArray[x].length-1,fruitArray[x].length);
-    midStr=fruitArray[x].substr(1,fruitArray[x].length-2);
-
-    combinedStr=lastStr.concat( midStr,firstStr);
-    swapArray.push(combinedStr);
-  }
 
   for (let y = 0; y < swapArray.length; y++ )
-   {
-      let lix = document.createElement("li");
-      let listItemx =document.createTextNode( (y+1)+": "+ (swapArray[y]));
+    {
+       let lix = document.createElement("li");
+       let listItemx =document.createTextNode( (y+1)+": "+ (swapArray[y]));
 
-      lix.appendChild(listItemx);
+       lix.appendChild(listItemx);
 
-      swapList.appendChild(lix);
-  }
+       swapList.appendChild(lix);
+   }
+    
+  
+}
+
+// window.onload=swapArray;
+
+function doswap(item){
+  let firstStr;
+  let midStr;
+  let lastStr;
+  let combinedStr;
+
+//for (let x=0; x<fruitArray.length;x++)
+//{
+firstStr=item.substr(0,1);
+lastStr=item.substr(item.length-1,item.length);
+midStr=item.substr(1,item.length-2);
+
+combinedStr=lastStr.concat( midStr,firstStr);
+return combinedStr;
+
+//}
+
 }
 
 
-// window.onload=swapArray;
+
+  
